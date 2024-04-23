@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проект "Боги стародавнього Риму"</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1; 
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #888; 
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555; 
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-y: scroll; /* Always show scrollbar */
+      scroll-behavior: smooth; /* Smooth scrolling */
+      background-color: #f8f9fa; /* Light background */
+      user-select: none;
+    }
+    .section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      scroll-snap-align: start;
+      position: relative;
+      z-index: 1; /* Ensure proper layering */
+      padding: 150px 0; /* Add more spacing between sections */
+    }
+    .fade-out {
+      opacity: 0;
+      transition: opacity 0.8s ease-out;
+    }
+    .fade-in {
+      opacity: 1;
+      transition: opacity 1s ease-in;
+    }
+    .neumorphic {
+      background-color: #fff;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+      transition: transform 0.3s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease; /* Added background-color and box-shadow transition */
+    }
+    .neumorphic:hover {
+      transform: translateY(-5px) scale(1.05); /* Lift effect and scale up on hover */
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Modify shadow on hover */
+    }
+    .neumorphic h1,
+    .neumorphic h2,
+    .neumorphic p {
+      color: #333; /* Dark text color */
+      transition: color 0.3s ease; /* Added text color transition */
+    }
+    .neumorphic:hover h1,
+    .neumorphic:hover h2,
+    .neumorphic:hover p {
+      color: #ff4081; /* Change text color on hover */
+    }
+    .comments {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .comment {
+      background-color: #fff;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+      transition: transform 0.5s ease; /* Smooth rotation transition */
+    }
+    .comment:hover {
+      transform: rotate(5deg); /* Rotate element slightly on hover */
+    }
+    .comment h3 {
+      margin-top: 0;
+    }
+    img {
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="section" style="background-color: #C8E6C9;">
+    <div class="neumorphic" style="max-width: 600px;">
+      <h1>Боги стародавнього Риму</h1>
+      <p>Цей проект був зроблен за 2 тижня (під керівнитсвом Анненкова Олександра 🤣). </p>
+      <p>Ми зробили презентацію та ШІ відео-чат який імитує римського бота "Марса"</p>
+    </div>
+  </div>
+  <div class="section" style="background-color: #FFCC80;">
+    <div class="neumorphic" style="max-width: 600px;">
+      <h2>Як працює ШІ "Марс"?</h2>
+      <p>STT (vosk) -&gt; Handler -&gt; Llama (ChatGPT) -&gt; TTS (ElevenVoice)</p>
+    </div>
+  </div>
+  <div class="section" style="background-color: #81D4FA;">
+    <div class="neumorphic" style="max-width: 800px;">
+      <h2>Коментарі від учасників проекту</h2>
+      <div class="comments">
+        <div class="comment">
+          <h3>Сашко</h3>
+          <p>Я був керівником проекту...</p>
+          <p>Це напевно було найскладніша робота у моєму житті...</p>
+          <p>НІ НУ РЕАЛЬНО...ТИ ЦЬОГО МАРСА ВЧИШЬ БАЛАКАТИ, А ВІН ТІЛЬКИ І РОБЕ, ЩО:</p>
+          <p>Я: Привіт</p>
+          <p>Марс: Привіт</p>
+          <p>Я: Як справи?</p>
+          <p>Марс: Привіт</p>
+          <p>Я: ой він глупий...схоже який создатель такий і бот..</p>
+        </div>
+        <div class="comment">
+          <h3>Михайло</h3>
+          <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="comment">
+          <h3>Тимур</h3>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div class="comment">
+          <h3>Володимир</h3>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div class="comment">
+          <h3>Кирило</h3>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      var sections = document.querySelectorAll('.section');
+      sections.forEach(function(section) {
+        var distanceToTop = section.getBoundingClientRect().top;
+        if (distanceToTop <= window.innerHeight * 0.75) {
+          section.classList.add('fade-in');
+          section.classList.remove('fade-out');
+        } else {
+          section.classList.remove('fade-in');
+          section.classList.add('fade-out');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
